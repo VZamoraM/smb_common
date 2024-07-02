@@ -3,8 +3,7 @@ import tf
 import csv
 from std_msgs.msg import Header
 from sensor_msgs.msg import CameraInfo
-from object_detection_msgs.msg import ObjectDetectionInfoArray # Replace with your actual message type
-from std_msgs.msg import String
+from object_detection_msgs.msg import ObjectDetectionInfoArray
 
 class DetectionSaver:
     def __init__(self):
