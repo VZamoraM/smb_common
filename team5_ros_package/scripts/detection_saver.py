@@ -1,9 +1,11 @@
+#!/usr/bin/env python3
 import rospy
 import tf
 import csv
 from std_msgs.msg import Header
 from sensor_msgs.msg import CameraInfo
 from object_detection_msgs.msg import ObjectDetectionInfoArray
+from datetime import datetime
 
 class DetectionSaver:
     def __init__(self):
@@ -13,7 +15,8 @@ class DetectionSaver:
         # self.csv_file_path = rospy.get_param('~csv_file_path', '/tmp/detections.csv')
 
         self.confidence_threshold =  0.7
-        self.csv_file_path = '/workspaces/rss_workspace/data/object_detections.csv'
+        current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.csv_file_path = f"/workspaces/rss_workspace/data/object_detections_{current_time}.csv"
 
         self.listener = tf.TransformListener()
 
