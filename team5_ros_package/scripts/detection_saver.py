@@ -44,7 +44,7 @@ class DetectionSaver:
                                               pose_x, pose_y, pose_z])
 
                 except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException) as e:
-                    rospy.logerr("TF transformation failed: %s", e) 4
+                    rospy.logerr("TF transformation failed: %s", e)
 
     def shutdown(self):
         self.csv_file.close()

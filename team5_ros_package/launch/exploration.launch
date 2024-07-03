@@ -1,10 +1,14 @@
 <launch>
     <!-- SMB core software -->
-    <include file="$(find smb)/launch/smb.launch"/>
+    <!-- <include file="$(find smb)/launch/smb.launch"/> -->
 
     <!-- Lower Level Planner -->
     <!-- Launch the SLAM -->
-    <include file="$(find smb_msf_graph)/launch/smb_msf_graph.launch"/>
+
+    <!-- Launch the local planner and path follower -->
+    <include file="$(find smb_msf_graph)/launch/smb_msf_graph.launch">
+        <arg name="use_sim_time" value="true"/>
+    </include>
 
     <!-- Launch the local planner and path follower -->
     <include file="$(find smb_navigation)/launch/navigate2d_cmu.launch">
@@ -12,11 +16,5 @@
         <arg name="global_frame" value="world_graph_msf"/>
         <arg name="state_estimation_topic" value="/transformed_odom"/>
         <arg name="launch_far_planner" value="false"/>
-    </include>
-
-    <!-- Exploration with TARE Planner -->
-    <!-- Launch TARE Planner for exploration -->
-    <include file="$(find smb_exploration)/launch/smb_rss_tare.launch">
-        <arg name="rviz" value="false"/>
     </include>
 </launch>
