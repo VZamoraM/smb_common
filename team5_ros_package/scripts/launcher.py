@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import subprocess
 import time
 import os
@@ -14,7 +16,6 @@ def load_config(config_file):
 def launch_ros_node(launch_file, args=[]):
     """Function to launch a ROS node using a given launch file."""
     command = ['roslaunch', launch_file] + args
-    print(command)
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     return process
 
