@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="team5_ros_package" type="launcher.py" name="launcher" output="screen" />
+</launch>

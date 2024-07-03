@@ -1,21 +1,13 @@
 launch_files:
 # !!! Either launch simulation or smb depending on where you want to run the stack
-  #  Launching SIMULATION
-  - launch_file: "/launch/sim.launch"
-    package: "smb_gazebo"
-    # Use only if required
-    # args:
-    #   - "world:=WaA"
   
   # Launchin SMB
-  # - launch_file: "/launch/smb.launch"
-  #   package: "smb"
+  - launch_file: "/launch/smb.launch"
+    package: "smb"
 
   # Launching SLAM
   - launch_file: "/launch/smb_msf_graph.launch"
     package: "smb_msf_graph"
-    args:
-      - "use_sim_time:=true"
 
   # Launching LOCAL PLANNER and PATH FOLLOWER
   - launch_file: "/launch/navigate2d_cmu.launch"
@@ -24,22 +16,19 @@ launch_files:
       - "use_msf:=true"
       - "global_frame:=world_graph_msf"
       - "state_estimation_topic:=/transformed_odom"
-      - "launch_far_planner:=false"
+      - "launch_far_planner:=true"
 
   # Launching TARE PLANNER
-  - launch_file: "/launch/cmu/smb_rss_tare.launch"
-    package: "smb_exploration"
-    args:
-      - "rviz:=false"
+  # - launch_file: "/launch/cmu/smb_rss_tare.launch"
+  #   package: "smb_exploration"
+  #   args:
+  #     - "rviz:=false"
   
   # Launching OBJECT DETECTION
   - launch_file: "/launch/object_detection.launch"
     package: "object_detection"
     args:
-      - "object_detection_classes:=[0,1,2,10]"
-      # !! Uncomment if running simulation
-      # - "gpu:=off"
-      # - "model:=yolov5l6"
-
-launch_delay: 5
+      - "object_detection_classes:=[24,25,39,11,74]"
+  
+launch_delay: 4
 shutdown_delay: 60
