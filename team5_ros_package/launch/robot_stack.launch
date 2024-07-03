@@ -8,30 +8,28 @@
     </include>
 
     <!-- Launch SLAM -->
-    <include file="$(find smb_msf_graph)/launch/smb_msf_graph.launch" >
-        <param name="use_sim_time" value="$(arg use_sim_time)"/>
-    </include>
+    <include file="$(find smb_msf_graph)/launch/smb_msf_graph.launch" />
 
     <!-- ############# Features  ############# -->
 
     <!-- Launch Local planner and path follower -->
     <include file="$(find smb_navigation)/launch/navigate2d_cmu.launch" >
-        <param name="use_msf" value="$(arg use_msf)"/>
-        <param name="global_frame" value="$(arg global_frame)"/>
-        <param name="state_estimation_topic" value="$(arg state_estimation_topic)"/>
-        <param name="launch_far_planner" value="$(arg launch_far_planner)"/>
+        <param name="use_msf" value="true"/> 
+        <param name="global_frame" value="world_graph_msf"/>
+        <param name="state_estimation_topic" value="/transformed_odom"/>
+        <param name="launch_far_planner" value="true"/>
     </include>
 
     <!-- Launch TARE Planner -->
     <include file="$(find smb_exploration)/launch/cmu/smb_rss_tare.launch" >
-        <param name="rviz" value="$(arg rviz)"/>
+        <param name="rviz" value="false"/>
     </include>
 
     <!-- Launch Object Detection -->
     <include file="$(find object_detection)/launch/object_detection.launch" >
         <!-- <arg name="gpu" value="off"/> -->
         <arg name="model" value="yolov5l6"/>
-        <!-- <param name="object_detection_classes" value="$(arg object_detection_classes)"/> -->
+        <param name="object_detection_classes" value="[0,1,2,10]"/>
     </include>
 
     <!-- Saving Map -->
