@@ -60,6 +60,7 @@
   <exec_depend>rospy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>object_detection_msgs</exec_depend>
+  <exec_depend>smb_estimator_graph</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
