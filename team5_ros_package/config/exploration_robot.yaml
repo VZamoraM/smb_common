@@ -1,0 +1,34 @@
+launch_files:
+# !!! Either launch simulation or smb depending on where you want to run the stack
+  
+  # Launchin SMB
+  - launch_file: "/launch/smb.launch"
+    package: "smb"
+
+  # Launching SLAM
+  - launch_file: "/launch/smb_msf_graph.launch"
+    package: "smb_msf_graph"
+
+  # Launching LOCAL PLANNER and PATH FOLLOWER
+  - launch_file: "/launch/navigate2d_cmu.launch"
+    package: "smb_navigation"
+    args:
+      - "use_msf:=true"
+      - "global_frame:=world_graph_msf"
+      - "state_estimation_topic:=/transformed_odom"
+      - "launch_far_planner:=true"
+
+  # Launching TARE PLANNER
+  - launch_file: "/launch/cmu/smb_rss_tare.launch"
+    package: "smb_exploration"
+    args:
+      - "rviz:=false"
+  
+  # Launching OBJECT DETECTION
+  - launch_file: "/launch/object_detection.launch"
+    package: "object_detection"
+    args:
+      - "object_detection_classes:=[0,1,2,10]"
+
+launch_delay: 4
+shutdown_delay: 60
