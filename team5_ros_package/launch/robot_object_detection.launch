@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam file="$(find team5_ros_package)/config/exploration.yaml" command="load" />
+
+    <!-- Launch smb -->
+    <include file="$(find smb)/launch/smb.launch" >
+        <!-- <param name="world" value="epeisses_indoors"/> -->
+    </include>
+
+    <!-- Launch SLAM -->
+    <include file="$(find smb_msf_graph)/launch/smb_msf_graph.launch" >
+        <param name="use_sim_time" value="$(arg use_sim_time)"/>
+    </include>
+
+    <!-- ############# Features  ############# -->
+
+    <!-- Launch Object Detection -->
+    <include file="$(find object_detection)/launch/object_detection.launch" >
+        <param name="object_detection_classes" value="$(arg object_detection_classes)"/>
+    </include>
+
+    <!-- Saving Map -->
+    <node name="detection_saver" pkg="team5_ros_package" type="detection_saver.py" output="screen"/>
+</launch>
