@@ -1,0 +1,8 @@
+world: WaA
+use_sim_time: true
+use_msf: true
+global_frame: world_graph_msf
+state_estimation_topic: /transformed_odom
+launch_far_planner: false
+rviz: false
+object_detection_classes: [0,1,2,10]
