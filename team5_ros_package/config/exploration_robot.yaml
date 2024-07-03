@@ -19,16 +19,16 @@ launch_files:
       - "launch_far_planner:=true"
 
   # Launching TARE PLANNER
-  - launch_file: "/launch/cmu/smb_rss_tare.launch"
-    package: "smb_exploration"
-    args:
-      - "rviz:=false"
+  # - launch_file: "/launch/cmu/smb_rss_tare.launch"
+  #   package: "smb_exploration"
+  #   args:
+  #     - "rviz:=false"
   
   # Launching OBJECT DETECTION
   - launch_file: "/launch/object_detection.launch"
     package: "object_detection"
     args:
-      - "object_detection_classes:=[0,1,2,10]"
-
+      - "object_detection_classes:=[24,25,39,11,74]"
+  
 launch_delay: 4
 shutdown_delay: 60
