@@ -14,13 +14,9 @@ class DetectionSaver:
         # self.confidence_threshold = rospy.get_param('~confidence_threshold', 0.7)
         # self.csv_file_path = rospy.get_param('~csv_file_path', '/tmp/detections.csv')
 
-        self.confidence_threshold =  0.7
-<<<<<<< HEAD
+        self.confidence_threshold =  0.6
         current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
         self.csv_file_path = f"/workspaces/rss_workspace/data/object_detections_{current_time}.csv"
-=======
-        self.csv_file_path = '/workspaces/rss_workspace/data/object_detections_2.csv'
->>>>>>> 7b966bacd77105d3b119bdbccfc358facd170ee3
 
         self.listener = tf.TransformListener()
 
