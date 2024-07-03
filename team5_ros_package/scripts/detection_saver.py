@@ -14,9 +14,8 @@ class DetectionSaver:
         rospy.init_node('detection_saver', anonymous=True)
 
         # self.confidence_threshold = rospy.get_param('~confidence_threshold', 0.7)
-        # self.csv_file_path = rospy.get_param('~csv_file_path', '/tmp/detections.csv')
-
-        self.confidence_threshold =  0.6
+        # self.csv_file_path = rospy.get_param('~csv_file_pa
+        self.confidence_threshold =  0.3
         current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
         self.csv_file_path = f"/workspaces/rss_workspace/data/object_detections_{current_time}.csv"
 
