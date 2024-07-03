@@ -8,15 +8,15 @@
     </include>
 
     <!-- Launch SLAM -->
-    <include file="$(find smb_msf_graph)/launch/smb_msf_graph.launch" >
-        <param name="use_sim_time" value="$(arg use_sim_time)"/>
-    </include>
+    <include file="$(find smb_msf_graph)/launch/smb_msf_graph.launch" />
 
     <!-- ############# Features  ############# -->
 
     <!-- Launch Object Detection -->
     <include file="$(find object_detection)/launch/object_detection.launch" >
-        <param name="object_detection_classes" value="$(arg object_detection_classes)"/>
+        <!-- <arg name="gpu" value="off"/> -->
+        <arg name="model" value="yolov5l6"/>
+        <param name="object_detection_classes" value="[0,1,2,10]"/>
     </include>
 
     <!-- Saving Map -->
