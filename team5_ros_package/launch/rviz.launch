@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch rqt_image_view -->
+    <node pkg="rqt_image_view" type="rqt_image_view" name="rqt_image_view" />
+</launch>
