@@ -115,6 +115,7 @@ df = pd.read_csv(csv_file_path)
 print(df.head())
 
 # Convert the confidence column to floats
+
 df['confidence'] = df['confidence'].astype(float)
 
 # Prompt user to enter the confidence level threshold
