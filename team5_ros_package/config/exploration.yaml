@@ -8,8 +8,8 @@ launch_files:
     #   - "world:=WaA"
   
   # Launchin SMB
-  - launch_file: "/launch/smb.launch"
-    package: "smb"
+  # - launch_file: "/launch/smb.launch"
+  #   package: "smb"
 
   # Launching SLAM
   - launch_file: "/launch/smb_msf_graph.launch"
