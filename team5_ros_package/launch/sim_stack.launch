@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
     <rosparam file="$(find team5_ros_package)/config/exploration.yaml" command="load" />
 
@@ -10,6 +11,8 @@
     <include file="$(find smb_msf_graph)/launch/smb_msf_graph.launch" >
         <param name="use_sim_time" value="$(arg use_sim_time)"/>
     </include>
+
+    <!-- ############# Features  ############# -->
 
     <!-- Launch Local planner and path follower -->
     <include file="$(find smb_navigation)/launch/navigate2d_cmu.launch" >
@@ -25,8 +28,12 @@
     </include>
 
     <!-- Launch Object Detection -->
-    <!-- <include file="$(find object_detection)/launch/object_detection.launch" >
+    <include file="$(find object_detection)/launch/object_detection.launch">
         <arg name="gpu" value="off"/>
         <arg name="model" value="yolov5l6"/>
-    </include> -->
+    </include>
+
+    <!-- Saving Map -->
+    <node name="detection_saver" pkg="team5_ros_package" type="detection_saver.py" output="screen"/>
+
 </launch>
