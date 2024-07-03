@@ -7,6 +7,7 @@
     <include file="$(find object_detection)/launch/object_detection.launch">
         <arg name="gpu" value="off"/>
         <arg name="model" value="yolov5l6"/>
+        <arg name="object_detection_classes" value="[24,25,39,11,74]"/>
     </include>
 
     <include file="$(find smb_msf_graph)/launch/smb_msf_graph.launch">
