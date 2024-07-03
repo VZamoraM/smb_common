@@ -17,7 +17,7 @@ alignment_params:
 noise_params:
   # IMU Random Walk
   # TODO: Change here
-  accBiasRandomWalkNoiseDensity: 4.33e-05 # Continuous-time Noise Amplitude Spectral Density of Accelerometer bias random walk [m/s^3/√Hz], default: sqrt(1.0e-03)
+  accBiasRandomWalkNoiseDensity: 4.33e-03 # Continuous-time Noise Amplitude Spectral Density of Accelerometer bias random walk [m/s^3/√Hz], default: sqrt(1.0e-03)
   gyrBiasRandomWalkNoiseDensity: 2.66e-06 # Continuous-time Noise Amplitude Spectral Density of Gyroscope bias random walk [rad/s^2/√Hz], default: default: sqrt(9.33e-04)
   # TODO: End of change
   ## LiDAR

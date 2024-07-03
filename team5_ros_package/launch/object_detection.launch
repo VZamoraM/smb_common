@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch the SMB Gazebo Simulation -->
+    <!-- <include file="$(find smb_gazebo)/launch/sim.launch"/> -->
+
+    <!-- Launch the object detection with specified parameters -->
+    <include file="$(find object_detection)/launch/object_detection.launch">
+        <arg name="gpu" value="off"/>
+        <arg name="model" value="yolov5l6"/>
+    </include>
+
+    <include file="$(find smb_msf_graph)/launch/smb_msf_graph.launch">
+        <arg name="use_sim_time" value="true"/>
+    </include>
+
+    <node name="detection_saver" pkg="team5_ros_package" type="detection_saver.py" output="screen"/>
+    
+</launch>
